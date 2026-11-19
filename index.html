@@ -111,6 +111,17 @@ section{padding:96px 0}
 .flow span{background:rgba(255,255,255,.08);border-radius:999px;padding:8px 14px}
 .flow i{font-style:normal;color:var(--sky)}
 
+/* Hotel video + gallery */
+.vid{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--deep)}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid-tag{position:absolute;left:16px;bottom:16px;background:rgba(10,31,60,.7);backdrop-filter:blur(6px);color:#fff;font-size:.82rem;padding:7px 14px;border-radius:999px}
+.hgal{columns:4 240px;column-gap:14px;margin-top:56px}
+.hgal button{display:block;width:100%;border:0;padding:0;margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--ice)}
+.hgal img{width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hgal button:hover img{transform:scale(1.04)}
+.pool{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.pool img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
 /* Car gallery */
 .cars{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:230px 230px;gap:14px;margin-bottom:14px}
 .car{position:relative;border:0;padding:0;border-radius:var(--radius);overflow:hidden;cursor:zoom-in;background:var(--deep);box-shadow:0 20px 40px -24px rgba(0,0,0,.6)}
@@ -160,6 +171,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   section{padding:68px 0}
   .hero{padding:64px 0 100px}
   .cards,.steps{grid-template-columns:1fr}
+  .hgal{columns:2;column-gap:10px;margin-top:36px}
+  .hgal button{margin-bottom:10px}
   .cars{grid-template-columns:1fr 1fr;grid-template-rows:240px 150px 150px}
   .c-main{grid-row:span 1}
   .car .cap{left:10px;right:10px;bottom:8px}
@@ -229,10 +242,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       </ul>
       <a class="btn btn-wa" href="https://wa.me/351968069944?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Apartment%20im%20Boutique-Hotel%20anfragen." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="h.cta">Verfügbarkeit per WhatsApp anfragen</span></a>
     </div>
-    <div class="media mosaic">
-      <div class="ph"><span data-i18n="ph.hotel">Foto Boutique-Hotel folgt</span></div>
-      <div class="ph"><span data-i18n="ph.apt">Apartment</span></div>
-      <div class="ph"><span data-i18n="ph.bath">Bad</span></div>
+    <div class="media vid">
+      <video src="video/hotel-eingang.mp4" poster="video/hotel-eingang-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Eingang des Boutique-Hotels"></video>
+      <span class="vid-tag" data-i18n="vid.tag">Willkommen – unser Eingang</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hgal">
+      <button><img src="images/hotel-studio.jpg" alt="Dachgeschoss-Studio mit Holzbalken, Sofa und Doppelbett" loading="lazy"></button>
+      <button><img src="images/hotel-zimmer5.jpg" alt="Blick in Apartment 5 unter dem Dach" loading="lazy"></button>
+      <button><img src="images/hotel-doppelzimmer.jpg" alt="Doppelzimmer mit Vorhängen" loading="lazy"></button>
+      <button><img src="images/hotel-twin.jpg" alt="Zweibettzimmer mit Teppich und TV" loading="lazy"></button>
+      <button><img src="images/hotel-treppe.jpg" alt="Holztreppe im Dachgeschoss" loading="lazy"></button>
+      <button><img src="images/hotel-eingang.jpg" alt="Eingangsbereich mit Kommode" loading="lazy"></button>
+      <button><img src="images/hotel-einzelzimmer.jpg" alt="Zimmer mit Bett, Schreibtisch und TV" loading="lazy"></button>
+      <button><img src="images/hotel-flur.jpg" alt="Flur mit Bildern und Pendelleuchten" loading="lazy"></button>
+      <button><img src="images/hotel-twin2.jpg" alt="Zweibettzimmer mit Holzpaneel" loading="lazy"></button>
+      <button><img src="images/hotel-deko.jpg" alt="Bunte Deko-Vögel am Treppengeländer" loading="lazy"></button>
     </div>
   </div>
 </section>
@@ -240,7 +266,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <!-- 2 Ferienhaus -->
 <section id="ferienhaus" class="band">
   <div class="wrap split rev">
-    <div class="media"><div class="ph" style="min-height:420px"><span data-i18n="ph.villa">Foto Ferienhaus mit Pool folgt</span></div></div>
+    <div class="media pool"><img src="images/ferienhaus-pool.jpg" alt="Swimmingpool mit Wasserfall-Mauer" loading="lazy"></div>
     <div>
       <div class="head">
         <span class="eyebrow" data-i18n="v.eye">Ferienhaus</span>
@@ -376,7 +402,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
 
 // Lightbox
 const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
-document.querySelectorAll('.gallery button, .car').forEach(b=>b.onclick=()=>{const i=b.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')});
+document.querySelectorAll('.gallery button, .car, .hgal button').forEach(b=>b.onclick=()=>{const i=b.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')});
 lb.onclick=()=>lb.classList.remove('on');
 
 // Sprachen
@@ -414,7 +440,7 @@ const PT={
 "wa.h":"Escreva-nos no WhatsApp","wa.p":"Escolha o assunto – a mensagem já está preparada.",
 "q1":"Apartamento no hotel boutique","q2":"Casa de férias com piscina","q3":"Vender imóvel","q4":"Importação e avaliação auto",
 "imp":"Informação legal","priv":"Privacidade",
-"car.sport":"Desportivo e prático","car.int":"Interior","car.classic":"Clássico","car.note":"Exemplos do nosso comércio automóvel – ofertas atuais a pedido pelo WhatsApp."
+"vid.tag":"Bem-vindo – a nossa entrada","car.sport":"Desportivo e prático","car.int":"Interior","car.classic":"Clássico","car.note":"Exemplos do nosso comércio automóvel – ofertas atuais a pedido pelo WhatsApp."
 };
 const EN={
 "nav.hotel":"Boutique Hotel","nav.villa":"Holiday Home","nav.re":"Real Estate","nav.cars":"Car Import","nav.contact":"Contact",
@@ -450,7 +476,7 @@ const EN={
 "wa.h":"Message us on WhatsApp","wa.p":"Choose your topic – the message is already prepared.",
 "q1":"Apartment in the boutique hotel","q2":"Holiday home with pool","q3":"Sell a property","q4":"Car import & valuation",
 "imp":"Legal notice","priv":"Privacy",
-"car.sport":"Sporty and practical","car.int":"Interior","car.classic":"Classic","car.note":"Examples from our car trading – current offers on request via WhatsApp."
+"vid.tag":"Welcome – our entrance","car.sport":"Sporty and practical","car.int":"Interior","car.classic":"Classic","car.note":"Examples from our car trading – current offers on request via WhatsApp."
 };
 const ES={
 "nav.hotel":"Hotel boutique","nav.villa":"Casa vacacional","nav.re":"Inmuebles","nav.cars":"Importación de coches","nav.contact":"Contacto",
@@ -486,7 +512,7 @@ const ES={
 "wa.h":"Escríbanos por WhatsApp","wa.p":"Elija el tema – el mensaje ya está preparado.",
 "q1":"Apartamento en el hotel boutique","q2":"Casa vacacional con piscina","q3":"Vender un inmueble","q4":"Importación y valoración de coches",
 "imp":"Aviso legal","priv":"Privacidad",
-"car.sport":"Deportivo y práctico","car.int":"Interior","car.classic":"Clásico","car.note":"Ejemplos de nuestra compraventa de coches – ofertas actuales a consultar por WhatsApp."
+"vid.tag":"Bienvenido – nuestra entrada","car.sport":"Deportivo y práctico","car.int":"Interior","car.classic":"Clásico","car.note":"Ejemplos de nuestra compraventa de coches – ofertas actuales a consultar por WhatsApp."
 };
 const DE={};document.querySelectorAll('[data-i18n]').forEach(e=>DE[e.dataset.i18n]=e.textContent);
 const DICT={pt:PT,en:EN,de:DE,es:ES};
