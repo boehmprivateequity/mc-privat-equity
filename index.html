@@ -122,6 +122,32 @@ section{padding:96px 0}
 .pool{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
 .pool img{width:100%;aspect-ratio:4/3;object-fit:cover}
 
+/* Rooms, facts, reviews, infos */
+.rooms{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px}
+.room{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,box-shadow .2s}
+.room:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.room h3{font-size:1.1rem;color:var(--navy)}
+.room p{color:var(--muted);font-size:.86rem;flex:1}
+.room-meta{display:flex;gap:6px;flex-wrap:wrap}
+.room-meta span{background:var(--ice);color:var(--blue);font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:999px}
+.price{font-family:Fraunces,serif;font-size:1.4rem;color:var(--navy);border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+.price small{font-family:Inter,sans-serif;font-size:.75rem;color:var(--muted)}
+.note{color:var(--muted);font-size:.82rem;margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:-14px 0 22px}
+.facts div{background:var(--ice);border-radius:14px;padding:12px;text-align:center}
+.facts b{display:block;font-family:Fraunces,serif;font-size:1.25rem;color:var(--navy)}
+.facts small{color:var(--muted);font-size:.75rem}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:14px}
+.stars{color:#e8a93a;letter-spacing:2px}
+.review blockquote{font-family:Fraunces,serif;font-size:1.05rem;line-height:1.5;color:var(--navy);flex:1}
+.review figcaption{display:flex;flex-direction:column;font-size:.85rem}
+.review figcaption span{color:var(--muted)}
+.infos{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px;background:linear-gradient(150deg,var(--navy),var(--deep));border-radius:24px;padding:24px;color:#fff}
+.infos small{display:block;color:var(--sky);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.infos b{font-weight:500;font-size:.95rem}
+#ferienhaus .hgal{margin-top:48px}
+
 /* Car gallery */
 .cars{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:230px 230px;gap:14px;margin-bottom:14px}
 .car{position:relative;border:0;padding:0;border-radius:var(--radius);overflow:hidden;cursor:zoom-in;background:var(--deep);box-shadow:0 20px 40px -24px rgba(0,0,0,.6)}
@@ -167,12 +193,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   .split,.split.rev,.ref,.contact{grid-template-columns:1fr}
   .split.rev .media{order:0}
   .cards{grid-template-columns:1fr 1fr}
+  .rooms{grid-template-columns:repeat(2,1fr)}
+  .reviews{grid-template-columns:1fr}
+  .infos{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:560px){
   .wrap{padding:0 16px}
   section{padding:68px 0}
   .hero{padding:64px 0 100px}
   .cards,.steps{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .room{padding:14px}
+  .price{font-size:1.1rem;white-space:nowrap}
+  .price small{font-size:.68rem}
+  .infos{grid-template-columns:1fr}
   .hgal{columns:2;column-gap:10px;margin-top:36px}
   .hgal button{margin-bottom:10px}
   .cars{grid-template-columns:1fr 1fr;grid-template-rows:240px 150px 150px}
@@ -195,8 +229,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap bar">
     <a class="logo" href="#top"><b>Manuel Chaleta</b><span>Private Equity</span></a>
     <nav>
-      <a href="#hotel" data-i18n="nav.hotel">Boutique-Hotel</a>
-      <a href="#ferienhaus" data-i18n="nav.villa">Ferienhaus</a>
+      <a href="#hotel" data-i18n="nav.hotel">Gästezimmer</a>
+      <a href="#ferienhaus" data-i18n="nav.villa">Villa mit Pool</a>
       <a href="#immobilien" data-i18n="nav.re">Immobilien</a>
       <a href="#autos" data-i18n="nav.cars">Autoimport</a>
       <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
@@ -213,14 +247,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <span class="eyebrow" data-i18n="hero.eye">Vendas Novas · Alentejo · Portugal</span>
     <h1 data-i18n="hero.h">Wohnen, Urlaub und Mobilität – persönlich betreut aus dem Alentejo.</h1>
-    <p class="lead" data-i18n="hero.p">Boutique-Hotel mit sechs Apartments, ein modernes Ferienhaus mit eigenem Pool, Ankauf und Modernisierung von Immobilien sowie Fahrzeugimport aus Deutschland – alles aus einer Hand.</p>
+    <p class="lead" data-i18n="hero.p">Gästezimmer im Alojamento Infantes, die Villa Casa dos Infantes mit privatem Pool, Ankauf und Modernisierung von Immobilien sowie Fahrzeugimport aus Deutschland – alles aus einer Hand.</p>
     <div class="cta">
-      <a class="btn btn-wa" href="https://wa.me/351968069944?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Apartment%20im%20Boutique-Hotel." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="hero.cta1">Apartment anfragen</span></a>
-      <a class="btn btn-ghost" href="#hotel" data-i18n="hero.cta2">Zum Boutique-Hotel</a>
+      <a class="btn btn-wa" href="https://casadosinfantes.pt/index.php/procurar-disponibilidade/" target="_blank" rel="noopener"><span data-i18n="hero.cta1">Unterkunft buchen</span></a>
+      <a class="btn btn-ghost" href="#hotel" data-i18n="hero.cta2">Zimmer & Ferienhaus ansehen</a>
     </div>
     <div class="pillars">
-      <a class="pillar" href="#hotel"><small>01</small><strong data-i18n="p1">Boutique-Hotel</strong></a>
-      <a class="pillar" href="#ferienhaus"><small>02</small><strong data-i18n="p2">Ferienhaus mit Pool</strong></a>
+      <a class="pillar" href="#hotel"><small>01</small><strong data-i18n="p1">Gästezimmer</strong></a>
+      <a class="pillar" href="#ferienhaus"><small>02</small><strong data-i18n="p2">Villa mit Pool</strong></a>
       <a class="pillar" href="#immobilien"><small>03</small><strong data-i18n="p3">Immobilien-Ankauf</strong></a>
       <a class="pillar" href="#autos"><small>04</small><strong data-i18n="p4">Autoimport DE → PT</strong></a>
     </div>
@@ -232,17 +266,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap split">
     <div>
       <div class="head">
-        <span class="eyebrow" data-i18n="h.eye">Boutique-Hotel · Vendas Novas</span>
-        <h2 data-i18n="h.h">Sechs Apartments. Ruhig, modern, familiär geführt.</h2>
-        <p data-i18n="h.p">Unser neu gebautes Boutique-Hotel im Herzen von Vendas Novas bietet sechs vollständig ausgestattete Apartments – ideal für Kurzurlaub, Geschäftsreisen oder längere Aufenthalte im Alentejo. Die Vermietung betreut die Familie Chaleta persönlich.</p>
+        <span class="eyebrow" data-i18n="h.eye">Alojamento Infantes · Vendas Novas</span>
+        <h2 data-i18n="h.h">Gemütliche Zimmer – einzeln vermietet, persönlich betreut.</h2>
+        <p data-i18n="h.p">Private Zimmer mit eigenem Bad, dazu eine Gemeinschaftsküche und Terrasse – ideal für Reisende, Paare und Geschäftsgäste. Ihre Gastgeber Carla und Manuel sind vor und während Ihres Aufenthalts für Sie da.</p>
       </div>
       <ul class="feat">
-        <li data-i18n="h.f1">6 moderne Apartments mit eigener Küche und Bad</li>
-        <li data-i18n="h.f2">Persönliche Betreuung statt anonymer Rezeption</li>
-        <li data-i18n="h.f3">Zentrale Lage – ca. 1 Stunde bis Lissabon und Évora</li>
-        <li data-i18n="h.f4">Tages-, Wochen- und Monatsmiete möglich</li>
+        <li data-i18n="h.f1">Eigenes Bad mit Dusche, Föhn und Pflegeprodukten</li>
+        <li data-i18n="h.f2">Klimaanlage, Heizung und Flachbild-TV in jedem Zimmer</li>
+        <li data-i18n="h.f3">Gemeinschaftsküche, Terrasse, gratis WLAN und Parkplatz</li>
+        <li data-i18n="h.f4">Ruhige Lage zwischen Lissabon und Évora</li>
       </ul>
-      <a class="btn btn-wa" href="https://wa.me/351968069944?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Apartment%20im%20Boutique-Hotel%20anfragen." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="h.cta">Verfügbarkeit per WhatsApp anfragen</span></a>
+      <div class="cta">
+        <a class="btn btn-blue" href="https://casadosinfantes.pt/index.php/alojamento-infantes/" target="_blank" rel="noopener"><span data-i18n="h.book">Zimmer buchen</span></a>
+        <a class="btn btn-wa" href="https://wa.me/351968069944?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Zimmer%20im%20Alojamento%20Infantes%20anfragen." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="h.cta">Per WhatsApp anfragen</span></a>
+      </div>
     </div>
     <div class="media vid">
       <video src="video/hotel-eingang.mp4" poster="video/hotel-eingang-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Eingang des Boutique-Hotels"></video>
@@ -250,6 +287,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </div>
   <div class="wrap">
+    <div class="rooms">
+      <div class="room"><h3 data-i18n="rm1">Großes Doppelzimmer</h3><p data-i18n="rm1.d">Doppelbett, Sofa-Ecke und Smart TV</p><div class="room-meta"><span>30 m²</span><span data-i18n="g2">2 Gäste</span></div><div class="price"><small data-i18n="from">ab</small> 70 € <small data-i18n="night">/ Nacht</small></div></div>
+      <div class="room"><h3 data-i18n="rm2">Doppelzimmer</h3><p data-i18n="rm2.d">Gemütlich mit Doppelbett</p><div class="room-meta"><span>12 m²</span><span data-i18n="g2">2 Gäste</span></div><div class="price"><small data-i18n="from">ab</small> 55 € <small data-i18n="night">/ Nacht</small></div></div>
+      <div class="room"><h3 data-i18n="rm3">Twin Garten</h3><p data-i18n="rm3.d">Zwei Betten mit Blick in den Garten</p><div class="room-meta"><span>18 m²</span><span data-i18n="g2">2 Gäste</span></div><div class="price"><small data-i18n="from">ab</small> 60 € <small data-i18n="night">/ Nacht</small></div></div>
+      <div class="room"><h3>Twin Red</h3><p data-i18n="rm4.d">Zwei Betten, warme Rottöne</p><div class="room-meta"><span>14 m²</span><span data-i18n="g2">2 Gäste</span></div><div class="price"><small data-i18n="from">ab</small> 60 € <small data-i18n="night">/ Nacht</small></div></div>
+      <div class="room"><h3>Twin Blue</h3><p data-i18n="rm5.d">Zwei Betten, frische Blautöne</p><div class="room-meta"><span>14 m²</span><span data-i18n="g2">2 Gäste</span></div><div class="price"><small data-i18n="from">ab</small> 60 € <small data-i18n="night">/ Nacht</small></div></div>
+    </div>
+    <p class="note" data-i18n="rm.note">Lizenz Alojamento Local 171943/AL · Preise je Zimmer und Nacht, aktuelle Verfügbarkeit bei der Buchung.</p>
     <div class="hgal">
       <button><img src="images/hotel-studio.jpg" alt="Dachgeschoss-Studio mit Holzbalken, Sofa und Doppelbett" loading="lazy"></button>
       <button><img src="images/hotel-zimmer5.jpg" alt="Blick in Apartment 5 unter dem Dach" loading="lazy"></button>
@@ -268,19 +313,71 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <!-- 2 Ferienhaus -->
 <section id="ferienhaus" class="band">
   <div class="wrap split rev">
-    <div class="media pool"><img src="images/ferienhaus-pool.jpg" alt="Swimmingpool mit Wasserfall-Mauer" loading="lazy"></div>
+    <div class="media pool"><img src="images/casa-pool-abend.jpg" alt="Casa dos Infantes – Pool in der Abenddämmerung" loading="lazy"></div>
     <div>
       <div class="head">
-        <span class="eyebrow" data-i18n="v.eye">Ferienhaus</span>
-        <h2 data-i18n="v.h">Modern, kubisch – mit eigenem Pool.</h2>
-        <p data-i18n="v.p">Klare Architektur, viel Licht und ein privater Swimmingpool: Unser Ferienhaus ist der Rückzugsort für Familien und Freunde, die die Ruhe des Alentejo genießen möchten.</p>
+        <span class="eyebrow" data-i18n="v.eye">Casa dos Infantes · Ferienhaus</span>
+        <h2 data-i18n="v.h">Modern, kubisch – mit privatem Pool.</h2>
+        <p data-i18n="v.p">Eine komplette Villa für Familien und Gruppen bis 8 Personen: großzügige, helle Räume, voll ausgestattete Küche, Terrasse mit Lounge, Garten mit Olivenbaum und ein privater Pool.</p>
+      </div>
+      <div class="facts">
+        <div><b>8</b><small data-i18n="v.k1">Gäste</small></div>
+        <div><b>300 m²</b><small data-i18n="v.k2">Wohnfläche</small></div>
+        <div><b>8 × 4 m</b><small data-i18n="v.k3">Privater Pool</small></div>
+        <div><b>280 €</b><small data-i18n="v.k4">ab / Nacht</small></div>
       </div>
       <ul class="feat">
-        <li data-i18n="v.f1">Privater Swimmingpool & Terrasse</li>
-        <li data-i18n="v.f2">Moderne, kubische Architektur</li>
-        <li data-i18n="v.f3">Komplett ausgestattet, sofort bezugsfertig</li>
+        <li data-i18n="v.f1">Grill, Terrasse und Garten</li>
+        <li data-i18n="v.f2">E-Auto-Ladestation und Parkplätze für 4 Autos</li>
+        <li data-i18n="v.f3">Klimaanlage, Heizung, Smart TV und gratis WLAN</li>
+        <li data-i18n="v.f4">Familienfreundlich: Hochstuhl, Babybett gratis</li>
       </ul>
-      <a class="btn btn-blue" href="https://wa.me/351968069944?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Ferienhaus%20mit%20Pool." target="_blank" rel="noopener"><span data-i18n="v.cta">Ferienhaus anfragen</span></a>
+      <div class="cta">
+        <a class="btn btn-blue" href="https://casadosinfantes.pt/index.php/accommodation/casa-dos-infantes/" target="_blank" rel="noopener"><span data-i18n="v.book">Villa buchen</span></a>
+        <a class="btn btn-wa" href="https://wa.me/351968069944?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Ferienhaus%20Casa%20dos%20Infantes." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg><span data-i18n="v.cta">Per WhatsApp anfragen</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hgal">
+      <button><img src="images/casa-luftbild.jpg" alt="Luftbild der Villa mit Pool" loading="lazy"></button>
+      <button><img src="images/casa-wohnen-essen.jpg" alt="Offener Wohn- und Essbereich" loading="lazy"></button>
+      <button><img src="images/casa-pool-tag.jpg" alt="Pool mit Sonnenliegen am Tag" loading="lazy"></button>
+      <button><img src="images/casa-schlafzimmer-blau.jpg" alt="Schlafzimmer mit blauem Polsterbett" loading="lazy"></button>
+      <button><img src="images/casa-bad.jpg" alt="Bad mit Doppelwaschbecken" loading="lazy"></button>
+      <button><img src="images/casa-kueche.jpg" alt="Moderne weiße Küche" loading="lazy"></button>
+      <button><img src="images/casa-aussen.jpg" alt="Außenansicht der kubischen Villa" loading="lazy"></button>
+      <button><img src="images/casa-fruehstueck.jpg" alt="Gedeckter Frühstückstisch" loading="lazy"></button>
+      <button><img src="images/casa-wohnzimmer.jpg" alt="Wohnzimmer mit großem Sofa" loading="lazy"></button>
+      <button><img src="images/casa-pool-nacht.jpg" alt="Beleuchteter Pool bei Nacht" loading="lazy"></button>
+      <button><img src="images/casa-lounge.jpg" alt="Überdachte Lounge auf der Terrasse" loading="lazy"></button>
+      <button><img src="images/casa-schlafzimmer.jpg" alt="Helles Schlafzimmer" loading="lazy"></button>
+      <button><img src="images/casa-garten.jpg" alt="Garten mit Olivenbaum" loading="lazy"></button>
+      <button><img src="images/casa-essen.jpg" alt="Gedeckter Esstisch" loading="lazy"></button>
+      <button><img src="images/casa-luftbild2.jpg" alt="Luftbild von der Seite" loading="lazy"></button>
+    </div>
+    <p class="note" data-i18n="v.note">Lizenz Alojamento Local 156593/AL</p>
+  </div>
+</section>
+
+<!-- Gäste & Hausinfos -->
+<section id="gaeste">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" data-i18n="t.eye">Gästebewertungen</span>
+      <h2 data-i18n="t.h">Was unsere Gäste sagen</h2>
+    </div>
+    <div class="reviews">
+      <figure class="review"><div class="stars">★★★★★</div><blockquote data-i18n="t1">„Super komfortables Haus mit viel Geschmack, ideal gelegen, um die historischen Städte der Region zu besuchen. Absolut empfehlenswert.“</blockquote><figcaption><b>Paulo Jorge</b><span data-i18n="t1.p">Sion, Schweiz</span></figcaption></figure>
+      <figure class="review"><div class="stars">★★★★★</div><blockquote data-i18n="t2">„Sehr freundliche und aufmerksame Gastgeberin – wir bekamen sogar Willkommensgeschenke mit Produkten aus der Region. Geräumig, schön eingerichtet, sehr ruhig.“</blockquote><figcaption><b>José</b><span>Charneca de Caparica, Portugal</span></figcaption></figure>
+      <figure class="review"><div class="stars">★★★★★</div><blockquote data-i18n="t3">„Sehr sauberes Haus, ausgezeichneter Pool und immer schnelle Antworten. Danke, Carla und Manuel, für eure Freundlichkeit!“</blockquote><figcaption><b>Yoann</b><span data-i18n="t3.p">Hénon, Frankreich</span></figcaption></figure>
+    </div>
+    <div class="infos">
+      <div><small>Check-in</small><b data-i18n="i1">16:00 – 23:30</b></div>
+      <div><small>Check-out</small><b data-i18n="i2">08:00 – 11:00</b></div>
+      <div><small data-i18n="i3.l">Kinder</small><b data-i18n="i3">Willkommen, Babybett gratis</b></div>
+      <div><small data-i18n="i4.l">Haustiere</small><b data-i18n="i4">Leider nicht erlaubt</b></div>
+      <div><small data-i18n="i5.l">Ruhezeit</small><b data-i18n="i5">22:00 – 08:00, keine Partys</b></div>
     </div>
   </div>
 </section>
@@ -373,14 +470,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <div><dt data-i18n="ct.addr">Adresse</dt><dd>Rua Amália Rodrigues 7<br>Vendas Novas, Portugal</dd></div>
           <div><dt data-i18n="ct.tel">Telefon / WhatsApp</dt><dd><a href="tel:+351968069944">+351 968 069 944</a></dd></div>
           <div><dt>E-Mail</dt><dd><a href="mailto:manuelchaleta@hotmail.com">manuelchaleta@hotmail.com</a></dd></div>
+          <div><dt data-i18n="ct.book">Reservierung Unterkünfte (Carla)</dt><dd><a href="tel:+351962516391">+351 962 516 391</a> · <a href="mailto:casadosinfantes@gmail.com">casadosinfantes@gmail.com</a><br><a href="https://casadosinfantes.pt/" target="_blank" rel="noopener">casadosinfantes.pt</a></dd></div>
         </dl>
       </div>
       <div class="cbox wabox">
         <h3 data-i18n="wa.h">Schreiben Sie uns auf WhatsApp</h3>
         <p data-i18n="wa.p">Wählen Sie Ihr Anliegen – die Nachricht ist schon vorbereitet.</p>
         <div class="quick">
-          <a href="https://wa.me/351968069944?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Apartment%20im%20Boutique-Hotel%20anfragen." target="_blank" rel="noopener"><span data-i18n="q1">Apartment im Boutique-Hotel</span><span>→</span></a>
-          <a href="https://wa.me/351968069944?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Ferienhaus%20mit%20Pool." target="_blank" rel="noopener"><span data-i18n="q2">Ferienhaus mit Pool</span><span>→</span></a>
+          <a href="https://wa.me/351968069944?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Zimmer%20im%20Alojamento%20Infantes%20anfragen." target="_blank" rel="noopener"><span data-i18n="q1">Zimmer im Alojamento Infantes</span><span>→</span></a>
+          <a href="https://wa.me/351968069944?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20das%20Ferienhaus%20Casa%20dos%20Infantes." target="_blank" rel="noopener"><span data-i18n="q2">Villa Casa dos Infantes</span><span>→</span></a>
           <a href="https://wa.me/351968069944?text=Hallo%2C%20ich%20m%C3%B6chte%20eine%20Immobilie%20verkaufen." target="_blank" rel="noopener"><span data-i18n="q3">Immobilie verkaufen</span><span>→</span></a>
           <a href="https://wa.me/351968069944?text=Hallo%2C%20ich%20habe%20eine%20Frage%20zum%20Autoimport." target="_blank" rel="noopener"><span data-i18n="q4">Autoimport & Bewertung</span><span>→</span></a>
         </div>
@@ -392,7 +490,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="y"></span> Manuel Chaleta · Private Equity · Vendas Novas</span>
+    <span>© <span id="y"></span> Manuel Chaleta · Private Equity · Vendas Novas<br><small>Casa dos Infantes 156593/AL · Alojamento Infantes 171943/AL</small></span>
     <span><a href="#" data-i18n="imp">Impressum</a> · <a href="#" data-i18n="priv">Datenschutz</a></span>
   </div>
 </footer>
@@ -517,6 +615,73 @@ const ES={
 "imp":"Aviso legal","priv":"Privacidad",
 "vid.tag":"Bienvenido – nuestra entrada","car.sport":"Deportivo y práctico","car.int":"Interior","car.classic":"Clásico","car.note":"Ejemplos de nuestra compraventa de coches – ofertas actuales a consultar por WhatsApp."
 };
+// Unterkünfte (Casa dos Infantes / Alojamento Infantes)
+Object.assign(PT,{
+"nav.hotel":"Quartos","nav.villa":"Moradia com piscina",
+"hero.p":"Quartos no Alojamento Infantes, a moradia Casa dos Infantes com piscina privada, compra e remodelação de imóveis e importação de viaturas da Alemanha – tudo num só lugar.",
+"hero.cta1":"Reservar alojamento","hero.cta2":"Ver quartos e moradia","p1":"Quartos","p2":"Moradia com piscina",
+"h.eye":"Alojamento Infantes · Vendas Novas","h.h":"Quartos acolhedores – alugados individualmente, com atendimento pessoal.",
+"h.p":"Quartos privados com casa de banho própria, cozinha partilhada e terraço – ideais para viajantes, casais e empresas. Os seus anfitriões Carla e Manuel estão disponíveis antes e durante a sua estadia.",
+"h.f1":"Casa de banho privativa com duche, secador e produtos de higiene","h.f2":"Ar condicionado, aquecimento e TV de ecrã plano em cada quarto","h.f3":"Cozinha partilhada, terraço, Wi-Fi e estacionamento grátis","h.f4":"Zona tranquila entre Lisboa e Évora",
+"h.book":"Reservar quarto","h.cta":"Pedir pelo WhatsApp",
+"rm1":"Quarto Duplo Amplo","rm1.d":"Cama de casal, zona de estar com sofá e Smart TV","rm2":"Quarto Duplo","rm2.d":"Acolhedor, com cama de casal","rm3":"Twin Jardim","rm3.d":"Duas camas com vista para o jardim","rm4.d":"Duas camas, tons quentes de vermelho","rm5.d":"Duas camas, tons frescos de azul",
+"g2":"2 hóspedes","from":"desde","night":"/ noite","rm.note":"Licença Alojamento Local 171943/AL · Preços por quarto e noite, disponibilidade atual na reserva.",
+"v.eye":"Casa dos Infantes · Casa de férias","v.h":"Moderna, cúbica – com piscina privada.",
+"v.p":"Uma moradia completa para famílias e grupos até 8 pessoas: espaços amplos e luminosos, cozinha totalmente equipada, terraço com lounge, jardim com oliveira e piscina privada.",
+"v.k1":"Hóspedes","v.k2":"Área","v.k3":"Piscina privada","v.k4":"desde / noite",
+"v.f1":"Churrasco, terraço e jardim","v.f2":"Carregador para carros elétricos e estacionamento para 4 carros","v.f3":"Ar condicionado, aquecimento, Smart TV e Wi-Fi grátis","v.f4":"Para famílias: cadeira alta, berço grátis",
+"v.book":"Reservar moradia","v.cta":"Pedir pelo WhatsApp","v.note":"Licença Alojamento Local 156593/AL",
+"t.eye":"Testemunhos","t.h":"O que dizem os nossos hóspedes",
+"t1":"„Casa super confortável, de extremo bom gosto, muito bem localizada para visitar as cidades e vilas históricas da região. Super recomendo.“","t1.p":"Sion, Suíça",
+"t2":"„Anfitriã muito simpática e atenciosa, fomos muito bem recebidos e até tivemos direito a umas prendas de boas vindas com produtos da região! A casa é super espaçosa e bem decorada.“",
+"t3":"„Casa muito limpa, excelente piscina. Sempre uma resposta muito rápida. Obrigado, Carla e Manuel, pela vossa gentileza e boas-vindas.“","t3.p":"Hénon, França",
+"i1":"16:00 – 23:30","i2":"08:00 – 11:00","i3.l":"Crianças","i3":"Bem-vindas, berço grátis","i4.l":"Animais","i4":"Não são admitidos","i5.l":"Descanso","i5":"22:00 – 08:00, sem festas",
+"ct.book":"Reservas de alojamento (Carla)","q1":"Quarto no Alojamento Infantes","q2":"Moradia Casa dos Infantes"
+});
+Object.assign(EN,{
+"nav.hotel":"Rooms","nav.villa":"Villa with pool",
+"hero.p":"Guest rooms at Alojamento Infantes, the Casa dos Infantes villa with private pool, purchase and renovation of property, and car imports from Germany – all from one source.",
+"hero.cta1":"Book your stay","hero.cta2":"See rooms & villa","p1":"Guest rooms","p2":"Villa with pool",
+"h.eye":"Alojamento Infantes · Vendas Novas","h.h":"Cosy rooms – let individually, personally looked after.",
+"h.p":"Private rooms with en-suite bathrooms, plus a shared kitchen and terrace – ideal for travellers, couples and business guests. Your hosts Carla and Manuel are there for you before and during your stay.",
+"h.f1":"Private bathroom with shower, hairdryer and toiletries","h.f2":"Air conditioning, heating and flat-screen TV in every room","h.f3":"Shared kitchen, terrace, free Wi-Fi and parking","h.f4":"Quiet location between Lisbon and Évora",
+"h.book":"Book a room","h.cta":"Ask on WhatsApp",
+"rm1":"Large Double Room","rm1.d":"Double bed, sofa corner and Smart TV","rm2":"Double Room","rm2.d":"Cosy, with a double bed","rm3":"Twin Garden","rm3.d":"Two beds with garden view","rm4.d":"Two beds, warm red tones","rm5.d":"Two beds, fresh blue tones",
+"g2":"2 guests","from":"from","night":"/ night","rm.note":"Alojamento Local licence 171943/AL · Prices per room and night, current availability when booking.",
+"v.eye":"Casa dos Infantes · Holiday home","v.h":"Modern, cubic – with a private pool.",
+"v.p":"A whole villa for families and groups of up to 8: spacious, bright rooms, a fully equipped kitchen, terrace lounge, a garden with an olive tree and a private pool.",
+"v.k1":"Guests","v.k2":"Living space","v.k3":"Private pool","v.k4":"from / night",
+"v.f1":"Barbecue, terrace and garden","v.f2":"EV charger and parking for 4 cars","v.f3":"Air conditioning, heating, Smart TV and free Wi-Fi","v.f4":"Family-friendly: high chair, free cot",
+"v.book":"Book the villa","v.cta":"Ask on WhatsApp","v.note":"Alojamento Local licence 156593/AL",
+"t.eye":"Guest reviews","t.h":"What our guests say",
+"t1":"“A super comfortable house in excellent taste, perfectly located for visiting the historic towns of the region. Highly recommended.”","t1.p":"Sion, Switzerland",
+"t2":"“A very friendly and attentive host – we even got welcome gifts with local products. Spacious, beautifully decorated and very quiet.”",
+"t3":"“A very clean house, an excellent pool and always quick replies. Thank you, Carla and Manuel, for your kindness!”","t3.p":"Hénon, France",
+"i3.l":"Children","i3":"Welcome, free cot","i4.l":"Pets","i4":"Not allowed","i5.l":"Quiet hours","i5":"22:00 – 08:00, no parties",
+"ct.book":"Accommodation bookings (Carla)","q1":"Room at Alojamento Infantes","q2":"Casa dos Infantes villa"
+});
+Object.assign(ES,{
+"nav.hotel":"Habitaciones","nav.villa":"Villa con piscina",
+"hero.p":"Habitaciones en el Alojamento Infantes, la villa Casa dos Infantes con piscina privada, compra y reforma de inmuebles e importación de coches desde Alemania – todo en un solo lugar.",
+"hero.cta1":"Reservar alojamiento","hero.cta2":"Ver habitaciones y villa","p1":"Habitaciones","p2":"Villa con piscina",
+"h.eye":"Alojamento Infantes · Vendas Novas","h.h":"Habitaciones acogedoras – alquiladas por separado, con atención personal.",
+"h.p":"Habitaciones privadas con baño propio, cocina compartida y terraza – ideales para viajeros, parejas y empresas. Sus anfitriones Carla y Manuel están a su disposición antes y durante su estancia.",
+"h.f1":"Baño privado con ducha, secador y productos de aseo","h.f2":"Aire acondicionado, calefacción y TV de pantalla plana en cada habitación","h.f3":"Cocina compartida, terraza, Wi-Fi y aparcamiento gratis","h.f4":"Zona tranquila entre Lisboa y Évora",
+"h.book":"Reservar habitación","h.cta":"Consultar por WhatsApp",
+"rm1":"Habitación doble amplia","rm1.d":"Cama de matrimonio, rincón con sofá y Smart TV","rm2":"Habitación doble","rm2.d":"Acogedora, con cama de matrimonio","rm3":"Twin Jardín","rm3.d":"Dos camas con vistas al jardín","rm4.d":"Dos camas, tonos rojos cálidos","rm5.d":"Dos camas, tonos azules frescos",
+"g2":"2 huéspedes","from":"desde","night":"/ noche","rm.note":"Licencia Alojamento Local 171943/AL · Precios por habitación y noche, disponibilidad actual al reservar.",
+"v.eye":"Casa dos Infantes · Casa vacacional","v.h":"Moderna, cúbica – con piscina privada.",
+"v.p":"Una villa completa para familias y grupos de hasta 8 personas: espacios amplios y luminosos, cocina totalmente equipada, terraza con lounge, jardín con olivo y piscina privada.",
+"v.k1":"Huéspedes","v.k2":"Superficie","v.k3":"Piscina privada","v.k4":"desde / noche",
+"v.f1":"Barbacoa, terraza y jardín","v.f2":"Cargador para coches eléctricos y aparcamiento para 4 coches","v.f3":"Aire acondicionado, calefacción, Smart TV y Wi-Fi gratis","v.f4":"Para familias: trona, cuna gratis",
+"v.book":"Reservar la villa","v.cta":"Consultar por WhatsApp","v.note":"Licencia Alojamento Local 156593/AL",
+"t.eye":"Opiniones","t.h":"Lo que dicen nuestros huéspedes",
+"t1":"«Una casa súper cómoda y de muy buen gusto, muy bien situada para visitar los pueblos históricos de la región. Muy recomendable.»","t1.p":"Sion, Suiza",
+"t2":"«Una anfitriona muy simpática y atenta – incluso recibimos regalos de bienvenida con productos de la región. Amplia, bien decorada y muy tranquila.»",
+"t3":"«Casa muy limpia, piscina excelente y respuestas siempre rápidas. ¡Gracias, Carla y Manuel, por vuestra amabilidad!»","t3.p":"Hénon, Francia",
+"i3.l":"Niños","i3":"Bienvenidos, cuna gratis","i4.l":"Mascotas","i4":"No se admiten","i5.l":"Descanso","i5":"22:00 – 08:00, sin fiestas",
+"ct.book":"Reservas de alojamiento (Carla)","q1":"Habitación en Alojamento Infantes","q2":"Villa Casa dos Infantes"
+});
 const DE={};document.querySelectorAll('[data-i18n]').forEach(e=>DE[e.dataset.i18n]=e.textContent);
 const DICT={pt:PT,en:EN,de:DE,es:ES};
 // Vorbereitete WhatsApp-Nachrichten je Sprache (Schlüssel = Stichwort im deutschen Text)
@@ -525,6 +690,9 @@ const WA={
  en:{"Apartment":"Hello, I would like to enquire about an apartment in the boutique hotel.","Ferienhaus":"Hello, I am interested in the holiday home with pool.","verkaufen":"Hello, I would like to sell a property.","Autoimport":"Hello, I have a question about car import.","Wohnung":"Hello, I am interested in the renovated apartment.","_":"Hello!"},
  es:{"Apartment":"Hola, quisiera solicitar un apartamento en el hotel boutique.","Ferienhaus":"Hola, me interesa la casa vacacional con piscina.","verkaufen":"Hola, quisiera vender un inmueble.","Autoimport":"Hola, tengo una pregunta sobre la importación de coches.","Wohnung":"Hola, me interesa el piso reformado.","_":"¡Hola!"}
 };
+Object.assign(WA.pt,{"Zimmer":"Olá, gostaria de pedir um quarto no Alojamento Infantes.","Ferienhaus":"Olá, tenho interesse na moradia Casa dos Infantes."});
+Object.assign(WA.en,{"Zimmer":"Hello, I would like to enquire about a room at Alojamento Infantes.","Ferienhaus":"Hello, I am interested in the Casa dos Infantes villa."});
+Object.assign(WA.es,{"Zimmer":"Hola, quisiera solicitar una habitación en el Alojamento Infantes.","Ferienhaus":"Hola, me interesa la villa Casa dos Infantes."});
 const waLinks=[...document.querySelectorAll('a[href*="wa.me"][href*="text="]')].map(a=>({a,de:a.href}));
 function setLang(l){
   if(!DICT[l])l='pt';
