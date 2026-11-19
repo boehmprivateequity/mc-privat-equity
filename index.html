@@ -111,6 +111,19 @@ section{padding:96px 0}
 .flow span{background:rgba(255,255,255,.08);border-radius:999px;padding:8px 14px}
 .flow i{font-style:normal;color:var(--sky)}
 
+/* Car gallery */
+.cars{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:230px 230px;gap:14px;margin-bottom:14px}
+.car{position:relative;border:0;padding:0;border-radius:var(--radius);overflow:hidden;cursor:zoom-in;background:var(--deep);box-shadow:0 20px 40px -24px rgba(0,0,0,.6)}
+.car img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s;filter:saturate(.95)}
+.car:hover img{transform:scale(1.06);filter:saturate(1.1)}
+.car:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,31,60,.85));pointer-events:none}
+.car .cap{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;text-align:left;color:#fff;display:flex;flex-direction:column}
+.car .cap b{font-family:Fraunces,serif;font-weight:600;font-size:1.05rem}
+.car .cap small{color:var(--sky);font-size:.78rem;letter-spacing:.06em}
+.c-main{grid-column:span 2;grid-row:span 2}
+.c-main .cap b{font-size:1.5rem}
+.cars-note{color:#9fb8d8;font-size:.88rem;margin-bottom:40px}
+
 /* Contact */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .cbox{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px}
@@ -147,6 +160,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   section{padding:68px 0}
   .hero{padding:64px 0 100px}
   .cards,.steps{grid-template-columns:1fr}
+  .cars{grid-template-columns:1fr 1fr;grid-template-rows:240px 150px 150px}
+  .c-main{grid-row:span 1}
+  .car .cap{left:10px;right:10px;bottom:8px}
+  .car .cap b{font-size:.85rem}
+  .c-main .cap b{font-size:1.3rem}
   .right .btn-wa{display:none}
   .ref{padding:18px}
   .gallery{grid-template-columns:repeat(3,1fr)}
@@ -288,6 +306,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h2 data-i18n="c.h">Gebrauchtwagen aus Deutschland – wir erledigen alles bis zur Zulassung in Portugal.</h2>
       <p data-i18n="c.p">Ankauf und Verkauf von Gebrauchtwagen, vorwiegend Import aus Deutschland. Zoll, Steuern und alle Formalitäten mit den deutschen und portugiesischen Behörden übernehmen wir für Sie.</p>
     </div>
+    <div class="cars">
+      <button class="car c-main"><img src="images/auto-golf-r.jpg" alt="VW Golf R" loading="lazy"><span class="cap"><b>VW Golf R</b><small data-i18n="car.sport">Sportlich & alltagstauglich</small></span></button>
+      <button class="car"><img src="images/auto-macan-heck.jpg" alt="Porsche Macan S" loading="lazy"><span class="cap"><b>Porsche Macan S</b></span></button>
+      <button class="car"><img src="images/auto-tesla.jpg" alt="Tesla Model S" loading="lazy"><span class="cap"><b>Tesla Model S</b></span></button>
+      <button class="car"><img src="images/auto-macan-innen.jpg" alt="Porsche Macan S – Innenraum" loading="lazy"><span class="cap"><b>Porsche Macan S</b><small data-i18n="car.int">Innenraum</small></span></button>
+      <button class="car"><img src="images/auto-jeep.jpg" alt="Klassischer Jeep" loading="lazy" style="object-position:center 40%"><span class="cap"><b>Jeep</b><small data-i18n="car.classic">Klassiker</small></span></button>
+    </div>
+    <p class="cars-note" data-i18n="car.note">Beispiele aus unserem Fahrzeughandel – aktuelle Angebote auf Anfrage per WhatsApp.</p>
     <div class="cards">
       <div class="card"><div class="ico">🚗</div><h3 data-i18n="k1.h">An- & Verkauf</h3><p data-i18n="k1.p">Ankauf Ihres Fahrzeugs und Verkauf geprüfter Gebrauchtwagen.</p></div>
       <div class="card"><div class="ico">🇩🇪</div><h3 data-i18n="k2.h">Import aus Deutschland</h3><p data-i18n="k2.p">Suche, Kauf und Überführung Ihres Wunschfahrzeugs nach Portugal.</p></div>
@@ -350,7 +376,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
 
 // Lightbox
 const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
-document.querySelectorAll('.gallery button').forEach(b=>b.onclick=()=>{const i=b.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')});
+document.querySelectorAll('.gallery button, .car').forEach(b=>b.onclick=()=>{const i=b.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')});
 lb.onclick=()=>lb.classList.remove('on');
 
 // Sprachen
@@ -387,7 +413,8 @@ const PT={
 "ct.eye":"Contacto","ct.h":"A forma mais rápida de nos contactar é pelo WhatsApp.","ct.addr":"Morada","ct.tel":"Telefone / WhatsApp",
 "wa.h":"Escreva-nos no WhatsApp","wa.p":"Escolha o assunto – a mensagem já está preparada.",
 "q1":"Apartamento no hotel boutique","q2":"Casa de férias com piscina","q3":"Vender imóvel","q4":"Importação e avaliação auto",
-"imp":"Informação legal","priv":"Privacidade"
+"imp":"Informação legal","priv":"Privacidade",
+"car.sport":"Desportivo e prático","car.int":"Interior","car.classic":"Clássico","car.note":"Exemplos do nosso comércio automóvel – ofertas atuais a pedido pelo WhatsApp."
 };
 const EN={
 "nav.hotel":"Boutique Hotel","nav.villa":"Holiday Home","nav.re":"Real Estate","nav.cars":"Car Import","nav.contact":"Contact",
@@ -422,7 +449,8 @@ const EN={
 "ct.eye":"Contact","ct.h":"The quickest way to reach us is WhatsApp.","ct.addr":"Address","ct.tel":"Phone / WhatsApp",
 "wa.h":"Message us on WhatsApp","wa.p":"Choose your topic – the message is already prepared.",
 "q1":"Apartment in the boutique hotel","q2":"Holiday home with pool","q3":"Sell a property","q4":"Car import & valuation",
-"imp":"Legal notice","priv":"Privacy"
+"imp":"Legal notice","priv":"Privacy",
+"car.sport":"Sporty and practical","car.int":"Interior","car.classic":"Classic","car.note":"Examples from our car trading – current offers on request via WhatsApp."
 };
 const ES={
 "nav.hotel":"Hotel boutique","nav.villa":"Casa vacacional","nav.re":"Inmuebles","nav.cars":"Importación de coches","nav.contact":"Contacto",
@@ -457,7 +485,8 @@ const ES={
 "ct.eye":"Contacto","ct.h":"La forma más rápida de contactarnos es por WhatsApp.","ct.addr":"Dirección","ct.tel":"Teléfono / WhatsApp",
 "wa.h":"Escríbanos por WhatsApp","wa.p":"Elija el tema – el mensaje ya está preparado.",
 "q1":"Apartamento en el hotel boutique","q2":"Casa vacacional con piscina","q3":"Vender un inmueble","q4":"Importación y valoración de coches",
-"imp":"Aviso legal","priv":"Privacidad"
+"imp":"Aviso legal","priv":"Privacidad",
+"car.sport":"Deportivo y práctico","car.int":"Interior","car.classic":"Clásico","car.note":"Ejemplos de nuestra compraventa de coches – ofertas actuales a consultar por WhatsApp."
 };
 const DE={};document.querySelectorAll('[data-i18n]').forEach(e=>DE[e.dataset.i18n]=e.textContent);
 const DICT={pt:PT,en:EN,de:DE,es:ES};
