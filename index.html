@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="pt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -169,7 +169,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
     </nav>
     <div class="right">
-      <div class="lang"><button data-lang="de" class="on">DE</button><button data-lang="pt">PT</button></div>
+      <div class="lang"><button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="es">ES</button></div>
       <a class="btn btn-wa btn-sm" href="https://wa.me/351968069944" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>WhatsApp</a>
     </div>
   </div>
@@ -389,18 +389,97 @@ const PT={
 "q1":"Apartamento no hotel boutique","q2":"Casa de férias com piscina","q3":"Vender imóvel","q4":"Importação e avaliação auto",
 "imp":"Informação legal","priv":"Privacidade"
 };
+const EN={
+"nav.hotel":"Boutique Hotel","nav.villa":"Holiday Home","nav.re":"Real Estate","nav.cars":"Car Import","nav.contact":"Contact",
+"hero.eye":"Vendas Novas · Alentejo · Portugal",
+"hero.h":"Stays, holidays and mobility – personally looked after in the Alentejo.",
+"hero.p":"A boutique hotel with six apartments, a modern holiday home with its own pool, purchase and renovation of property, and car imports from Germany – all from one source.",
+"hero.cta1":"Enquire about an apartment","hero.cta2":"See the boutique hotel",
+"p1":"Boutique hotel","p2":"Holiday home with pool","p3":"Property purchase","p4":"Car import DE → PT",
+"h.eye":"Boutique hotel · Vendas Novas","h.h":"Six apartments. Quiet, modern, family-run.",
+"h.p":"Our newly built boutique hotel in the heart of Vendas Novas offers six fully equipped apartments – ideal for short breaks, business trips or longer stays in the Alentejo. Bookings are handled personally by the Chaleta family.",
+"h.f1":"6 modern apartments, each with its own kitchen and bathroom","h.f2":"Personal service instead of an anonymous reception","h.f3":"Central location – about 1 hour to Lisbon and Évora","h.f4":"Daily, weekly and monthly stays",
+"h.cta":"Check availability on WhatsApp",
+"ph.hotel":"Hotel photo coming soon","ph.apt":"Apartment","ph.bath":"Bathroom","ph.villa":"Photo of the house with pool coming soon",
+"v.eye":"Holiday home","v.h":"Modern, cubic – with a private pool.",
+"v.p":"Clean architecture, plenty of light and a private swimming pool: our holiday home is the perfect retreat for families and friends who want to enjoy the calm of the Alentejo.",
+"v.f1":"Private swimming pool and terrace","v.f2":"Modern cubic architecture","v.f3":"Fully equipped, ready to move in","v.cta":"Enquire about the holiday home",
+"r.eye":"Real estate","r.h":"We buy houses and apartments in need of renovation.",
+"r.p":"Want to sell a property that needs work – quickly, simply and at a fair price? We buy directly, renovate to a high standard and then sell or let.",
+"s1.h":"Purchase","s1.p":"Direct purchase, even in poor condition – no estate agent.","s2.h":"Renovation","s2.p":"Kitchen, bathroom, floors, electrics, windows – all new.",
+"s3.h":"Sale","s3.p":"Move-in-ready homes for owner-occupiers and investors.","s4.h":"Letting","s4.p":"Selected properties we keep and let long-term.",
+"ref.badge":"For sale now","ref.h":"Fully renovated apartment",
+"ref.p":"New fitted kitchen with hob and oven, modern bathroom with a large glass shower, new floors, doors and windows. Ready to move in.",
+"ref.l":"Location","ref.s":"Condition","ref.sv":"Newly renovated","ref.r":"Rooms","ref.rv":"on request","ref.pr":"Price","ref.prv":"on request",
+"ref.cta":"Request details","ref.cta2":"Offer your property",
+"c.eye":"Car trading & import","c.h":"Used cars from Germany – we handle everything up to Portuguese registration.",
+"c.p":"Buying and selling used cars, mainly imported from Germany. We take care of customs, taxes and all formalities with the German and Portuguese authorities.",
+"k1.h":"Buying & selling","k1.p":"We buy your car and sell inspected used cars.","k2.h":"Import from Germany","k2.p":"Finding, buying and transferring your chosen car to Portugal.",
+"k3.h":"Customs, taxes & paperwork","k3.p":"ISV, customs, deregistration in Germany and registration in Portugal – all done.",
+"k4.h":"Inspection & appraisal","k4.p":"Technical inspection and, on request, an independent appraisal.","k5.h":"Tuning","k5.p":"Engine performance upgrades or visual tuning – just as you like.",
+"k6.h":"Price assessment","k6.p":"An honest assessment of the current market value for buying and selling.",
+"f1":"Car search","f2":"Purchase in Germany","f3":"Transfer","f4":"Customs & ISV","f5":"Inspection","f6":"Portuguese plates","c.cta":"Enquire about a car",
+"ct.eye":"Contact","ct.h":"The quickest way to reach us is WhatsApp.","ct.addr":"Address","ct.tel":"Phone / WhatsApp",
+"wa.h":"Message us on WhatsApp","wa.p":"Choose your topic – the message is already prepared.",
+"q1":"Apartment in the boutique hotel","q2":"Holiday home with pool","q3":"Sell a property","q4":"Car import & valuation",
+"imp":"Legal notice","priv":"Privacy"
+};
+const ES={
+"nav.hotel":"Hotel boutique","nav.villa":"Casa vacacional","nav.re":"Inmuebles","nav.cars":"Importación de coches","nav.contact":"Contacto",
+"hero.eye":"Vendas Novas · Alentejo · Portugal",
+"hero.h":"Alojamiento, vacaciones y movilidad – con atención personal en el Alentejo.",
+"hero.p":"Un hotel boutique con seis apartamentos, una casa vacacional moderna con piscina propia, compra y reforma de inmuebles e importación de coches desde Alemania – todo en un solo lugar.",
+"hero.cta1":"Solicitar apartamento","hero.cta2":"Ver el hotel boutique",
+"p1":"Hotel boutique","p2":"Casa con piscina","p3":"Compra de inmuebles","p4":"Importación DE → PT",
+"h.eye":"Hotel boutique · Vendas Novas","h.h":"Seis apartamentos. Tranquilos, modernos, de gestión familiar.",
+"h.p":"Nuestro nuevo hotel boutique en el centro de Vendas Novas ofrece seis apartamentos totalmente equipados – ideales para escapadas, viajes de negocios o estancias largas en el Alentejo. El alquiler lo gestiona personalmente la familia Chaleta.",
+"h.f1":"6 apartamentos modernos con cocina y baño propios","h.f2":"Atención personal en lugar de una recepción anónima","h.f3":"Ubicación céntrica – a 1 hora aprox. de Lisboa y Évora","h.f4":"Estancias por días, semanas o meses",
+"h.cta":"Consultar disponibilidad por WhatsApp",
+"ph.hotel":"Foto del hotel próximamente","ph.apt":"Apartamento","ph.bath":"Baño","ph.villa":"Foto de la casa con piscina próximamente",
+"v.eye":"Casa vacacional","v.h":"Moderna, cúbica – con piscina privada.",
+"v.p":"Arquitectura limpia, mucha luz y una piscina privada: nuestra casa vacacional es el refugio ideal para familias y amigos que quieren disfrutar de la calma del Alentejo.",
+"v.f1":"Piscina privada y terraza","v.f2":"Arquitectura moderna y cúbica","v.f3":"Totalmente equipada, lista para entrar","v.cta":"Solicitar casa vacacional",
+"r.eye":"Inmuebles","r.h":"Compramos casas y pisos para reformar.",
+"r.p":"¿Quiere vender un inmueble que necesita reforma – de forma rápida, sencilla y a un precio justo? Compramos directamente, reformamos con calidad y después vendemos o alquilamos.",
+"s1.h":"Compra","s1.p":"Compra directa, incluso en mal estado – sin inmobiliaria.","s2.h":"Reforma","s2.p":"Cocina, baño, suelos, electricidad, ventanas – todo nuevo.",
+"s3.h":"Venta","s3.p":"Viviendas listas para entrar a vivir, para propietarios e inversores.","s4.h":"Alquiler","s4.p":"Algunos inmuebles los conservamos y alquilamos a largo plazo.",
+"ref.badge":"En venta","ref.h":"Piso totalmente reformado",
+"ref.p":"Cocina equipada nueva con placa y horno, baño moderno con amplia ducha de cristal, suelos, puertas y ventanas nuevos. Listo para entrar a vivir.",
+"ref.l":"Ubicación","ref.s":"Estado","ref.sv":"Recién reformado","ref.r":"Habitaciones","ref.rv":"a consultar","ref.pr":"Precio","ref.prv":"a consultar",
+"ref.cta":"Solicitar información","ref.cta2":"Ofrecer su inmueble",
+"c.eye":"Compraventa e importación de coches","c.h":"Coches usados de Alemania – nos encargamos de todo hasta la matrícula portuguesa.",
+"c.p":"Compra y venta de coches usados, principalmente importados de Alemania. Nos ocupamos de aduanas, impuestos y todos los trámites con las autoridades alemanas y portuguesas.",
+"k1.h":"Compraventa","k1.p":"Compramos su coche y vendemos usados revisados.","k2.h":"Importación desde Alemania","k2.p":"Búsqueda, compra y traslado del coche que desea a Portugal.",
+"k3.h":"Aduanas, impuestos y trámites","k3.p":"ISV, aduana, baja en Alemania y matriculación en Portugal – todo resuelto.",
+"k4.h":"Inspección y peritaje","k4.p":"Inspección técnica y, si lo desea, peritaje independiente.","k5.h":"Tuning","k5.p":"Mejora de potencia del motor o tuning estético – a su gusto.",
+"k6.h":"Valoración de precio","k6.p":"Una valoración honesta del valor de mercado actual para comprar y vender.",
+"f1":"Búsqueda","f2":"Compra en Alemania","f3":"Traslado","f4":"Aduana e ISV","f5":"Inspección","f6":"Matrícula portuguesa","c.cta":"Solicitar coche",
+"ct.eye":"Contacto","ct.h":"La forma más rápida de contactarnos es por WhatsApp.","ct.addr":"Dirección","ct.tel":"Teléfono / WhatsApp",
+"wa.h":"Escríbanos por WhatsApp","wa.p":"Elija el tema – el mensaje ya está preparado.",
+"q1":"Apartamento en el hotel boutique","q2":"Casa vacacional con piscina","q3":"Vender un inmueble","q4":"Importación y valoración de coches",
+"imp":"Aviso legal","priv":"Privacidad"
+};
 const DE={};document.querySelectorAll('[data-i18n]').forEach(e=>DE[e.dataset.i18n]=e.textContent);
-const WA_PT={"Apartment":"Olá, gostaria de pedir um apartamento no hotel boutique.","Ferienhaus":"Olá, tenho interesse na casa de férias com piscina.","verkaufen":"Olá, gostaria de vender um imóvel.","Autoimport":"Olá, tenho uma pergunta sobre importação de viaturas.","Wohnung":"Olá, tenho interesse no apartamento remodelado."};
+const DICT={pt:PT,en:EN,de:DE,es:ES};
+// Vorbereitete WhatsApp-Nachrichten je Sprache (Schlüssel = Stichwort im deutschen Text)
+const WA={
+ pt:{"Apartment":"Olá, gostaria de pedir um apartamento no hotel boutique.","Ferienhaus":"Olá, tenho interesse na casa de férias com piscina.","verkaufen":"Olá, gostaria de vender um imóvel.","Autoimport":"Olá, tenho uma pergunta sobre importação de viaturas.","Wohnung":"Olá, tenho interesse no apartamento remodelado.","_":"Olá!"},
+ en:{"Apartment":"Hello, I would like to enquire about an apartment in the boutique hotel.","Ferienhaus":"Hello, I am interested in the holiday home with pool.","verkaufen":"Hello, I would like to sell a property.","Autoimport":"Hello, I have a question about car import.","Wohnung":"Hello, I am interested in the renovated apartment.","_":"Hello!"},
+ es:{"Apartment":"Hola, quisiera solicitar un apartamento en el hotel boutique.","Ferienhaus":"Hola, me interesa la casa vacacional con piscina.","verkaufen":"Hola, quisiera vender un inmueble.","Autoimport":"Hola, tengo una pregunta sobre la importación de coches.","Wohnung":"Hola, me interesa el piso reformado.","_":"¡Hola!"}
+};
 const waLinks=[...document.querySelectorAll('a[href*="wa.me"][href*="text="]')].map(a=>({a,de:a.href}));
 function setLang(l){
+  if(!DICT[l])l='pt';
   document.documentElement.lang=l;
-  document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;e.textContent=(l==='pt'?PT[k]:DE[k])||DE[k]});
-  waLinks.forEach(({a,de})=>{if(l==='de'){a.href=de;return}const t=decodeURIComponent(de.split('text=')[1]);const key=Object.keys(WA_PT).find(k=>t.includes(k));a.href='https://wa.me/351968069944?text='+encodeURIComponent(WA_PT[key]||'Olá!')});
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;e.textContent=DICT[l][k]||DE[k]});
+  waLinks.forEach(({a,de})=>{if(l==='de'){a.href=de;return}const t=decodeURIComponent(de.split('text=')[1]);const key=Object.keys(WA[l]).find(k=>t.includes(k))||'_';a.href='https://wa.me/351968069944?text='+encodeURIComponent(WA[l][key])});
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
   try{localStorage.setItem('lang',l)}catch(e){}
 }
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
-try{const s=localStorage.getItem('lang');if(s==='pt')setLang('pt')}catch(e){}
+// Startsprache: Portugiesisch (oder die zuletzt gewählte)
+let start='pt';try{start=localStorage.getItem('lang')||'pt'}catch(e){}
+setLang(start);
 </script>
 </body>
 </html>
